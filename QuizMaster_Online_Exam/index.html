@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuizMaster | Online Examination</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="brand">
+      <div class="brand-icon">Q</div>
+      <div><h1>QuizMaster</h1><p>Online Examination Portal</p></div>
+    </header>
+
+    <section id="loginPage" class="card">
+      <span class="eyebrow">STUDENT PORTAL</span>
+      <h2>Welcome back!</h2>
+      <p class="muted">Enter your details to access the examination.</p>
+      <form id="loginForm">
+        <label for="studentName">Student name</label>
+        <input id="studentName" type="text" placeholder="Enter your name" required>
+        <label for="studentId">Student ID</label>
+        <input id="studentId" type="text" placeholder="Enter your student ID" required>
+        <button class="btn primary full" type="submit">Continue <span>→</span></button>
+      </form>
+      <p class="small-note">Demo project • Student details are used for this session only.</p>
+    </section>
+
+    <section id="instructionsPage" class="card hidden">
+      <span class="eyebrow">BEFORE YOU BEGIN</span>
+      <h2>Examination instructions</h2>
+      <ul class="instructions">
+        <li>There are 10 multiple-choice questions.</li>
+        <li>Each correct answer carries 1 mark.</li>
+        <li>Total duration is 15 minutes.</li>
+        <li>Use Previous and Next to move between questions.</li>
+        <li>You can mark a question for review.</li>
+        <li>The exam is submitted automatically when time expires.</li>
+      </ul>
+      <button id="startBtn" class="btn primary full">Start examination →</button>
+    </section>
+
+    <section id="examPage" class="hidden">
+      <div class="exam-heading">
+        <div><span class="eyebrow">LIVE EXAMINATION</span><h2>General Computer Knowledge</h2><p id="studentWelcome" class="muted"></p></div>
+        <div class="timer-card"><span>TIME LEFT</span><strong id="timer">15:00</strong></div>
+      </div>
+      <div class="exam-layout">
+        <div class="card question-card">
+          <div class="question-meta"><span id="questionCount">QUESTION 1 OF 10</span><span id="answeredCount">0 answered</span></div>
+          <div class="progress-track"><div id="progressBar"></div></div>
+          <h3 id="questionText"></h3>
+          <div id="options" class="options"></div>
+          <div class="question-actions">
+            <button id="reviewBtn" class="btn outline">☆ Mark for review</button>
+            <div class="nav-buttons">
+              <button id="prevBtn" class="btn light">← Previous</button>
+              <button id="nextBtn" class="btn primary">Next →</button>
+            </div>
+          </div>
+        </div>
+        <aside class="card palette-card">
+          <h3>Question palette</h3>
+          <p class="muted small">Select a number to visit a question.</p>
+          <div id="palette" class="palette"></div>
+          <div class="legend"><span><i class="dot answered"></i> Answered</span><span><i class="dot review"></i> Review</span><span><i class="dot"></i> Not answered</span></div>
+          <button id="submitBtn" class="btn submit full">Submit examination</button>
+        </aside>
+      </div>
+    </section>
+
+    <section id="resultPage" class="card hidden result-card">
+      <div class="result-icon">✓</div>
+      <span class="eyebrow">EXAMINATION FINISHED</span>
+      <h2>Your result</h2>
+      <p id="resultStudent" class="muted"></p>
+      <div class="score" id="score">0/10</div>
+      <h3 id="resultMessage"></h3>
+      <div class="result-grid">
+        <div><strong id="correct">0</strong><span>Correct</span></div>
+        <div><strong id="wrong">0</strong><span>Incorrect</span></div>
+        <div><strong id="unanswered">0</strong><span>Unanswered</span></div>
+        <div><strong id="percentage">0%</strong><span>Percentage</span></div>
+      </div>
+      <button id="restartBtn" class="btn primary full">Start another exam</button>
+      <p id="serverStatus" class="small-note"></p>
+    </section>
+    <footer>QuizMaster © 2026 · Learning and assessment made simple</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
